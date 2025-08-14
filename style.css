@@ -1,0 +1,428 @@
+/* Variables y reset */
+:root {
+    --primary-color: #8b6b4a;
+    --secondary-color: #f8f1e9;
+    --accent-color: #d4a76a;
+    --text-color: #333;
+    --white: #fff;
+    --black: #000;
+    --font-title: 'Playfair Display', serif;
+    --font-text: 'Montserrat', sans-serif;
+    --font-special: 'Dancing Script', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos generales responsivos */
+.section-title {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.divider {
+    width: 100px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin: 0 auto 2rem;
+}
+
+/* Portada responsiva */
+.cover {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    background: url('images/background.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.animated-title {
+    font-family: var(--font-special);
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1.5s ease;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--white);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+/* Detalles de la boda responsivos */
+.details {
+    padding: 4rem 0;
+    background-color: var(--secondary-color);
+}
+
+.wedding-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.info-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.info-item i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.info-item h3 {
+    font-family: var(--font-title);
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Carrusel con efecto fade */
+.gallery {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control.prev {
+    left: 15px;
+}
+
+.carousel-control.next {
+    right: 15px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
+.carousel-indicators span {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicators span.active {
+    background-color: var(--white);
+}
+
+/* Cuenta regresiva responsiva */
+.countdown {
+    padding: 4rem 0;
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.countdown-item {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    min-width: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-item span {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.countdown-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.countdown-message {
+    font-family: var(--font-special);
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+/* Mensaje final */
+.rsvp {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.rsvp-text {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--primary-color);
+    line-height: 1.8;
+}
+
+/* Footer responsivo */
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+footer p {
+    margin-bottom: 1rem;
+    font-family: var(--font-special);
+    font-size: 1.5rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .animated-title {
+        font-size: 3.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .wedding-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .info-item {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .carousel-inner {
+        height: 400px;
+    }
+    
+    .countdown-item {
+        min-width: 80px;
+        padding: 1rem;
+    }
+    
+    .countdown-item span {
+        font-size: 2rem;
+    }
+    
+    .countdown-message {
+        font-size: 1.5rem;
+    }
+    
+    .rsvp-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .animated-title {
+        font-size: 2.5rem;
+    }
+    
+    .carousel-inner {
+        height: 300px;
+    }
+    
+    .countdown-timer {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 0.8rem;
+    }
+    
+    .countdown-item span {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-item p {
+        font-size: 0.8rem;
+    }
+    
+    footer p {
+        font-size: 1.2rem;
+    }
+}
